@@ -16,7 +16,8 @@ class UserController extends Controller
 
     public function index()
     {
-        return response()->json(['name' => 'Abigail', 'state' => 'CA']);
+        $results = app('db')->select("SELECT * FROM users");
+        return response()->json($results);
     }
 
     //
