@@ -42,4 +42,18 @@ class UserController extends Controller
         }
     }
 
+    public function edit(Request $request)
+    {
+        if($request->isMethod('put') && $request->has('id'))
+        {
+            $fname = $request->input('first_name');
+            $lname = $request->input('last_name');
+            $email = $request->input('email');
+            $id = $request->input('id');
+            $results = app('db')->select("UPDATE users SET first_name = '$fname', last_name = '$lname', email = '$email' WHERE id = $id");
+            $results = app('db')->select("SELECT * FROM users WHERE id = " . $id);
+            return response()->json($results);
+        }
+    }
+
 }

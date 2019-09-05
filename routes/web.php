@@ -24,3 +24,5 @@ $router->get('user', 'UserController@index');
 $router->get('user/{id}', 'UserController@get');
 
 $router->post('user', 'UserController@add');
+
+$router->put('user', 'UserController@edit');
