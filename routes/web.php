@@ -19,4 +19,6 @@ $router->get('foo', function() {
     return 'Hello World';
 });
 
-$router->get('user', ['as' => 'user', 'uses' => 'UserController@index']);
+$router->get('user', 'UserController@index');
+
+$router->get('user/{id}', 'UserController@get');
