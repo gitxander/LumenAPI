@@ -16,7 +16,7 @@ class UserController extends Controller
 
     public function index()
     {
-        return 'users';
+        return response()->json(['name' => 'Abigail', 'state' => 'CA']);
     }
 
     //
