@@ -56,4 +56,15 @@ class UserController extends Controller
         }
     }
 
+    public function delete(Request $request)
+    {
+        if($request->isMethod('delete') && $request->has('id'))
+        {
+            $id = $request->input('id');
+            $results = DB::delete("DELETE FROM users WHERE id = $id");
+            $results = $results == 1 ? "Success" : "Error";
+            return response()->json(array($results));
+        }
+    }
+
 }
